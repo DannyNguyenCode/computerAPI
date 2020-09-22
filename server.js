@@ -18,16 +18,27 @@ app.use(cors());
 
 app.get("/amdprocessors", (req, res) => {
   data
-    .getAllProcessors()
+    .getAMDProcessors()
     .then((data) => {
       res.json(data);
     })
     .catch((err) => {
-      console.log(err.message);
+      console.log(err.message + " within getting AMD processors");
       res.status(500).end();
     });
 });
 
+app.get("/intelprocessors", (req, res) => {
+  data
+    .getIntelProcessors()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err.message + " within getting Intel processors");
+      res.status(500).end();
+    });
+});
 app.use((req, res) => {
   res.status(404).end();
 });

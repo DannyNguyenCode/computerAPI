@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
-const processorSchema = require("./models/processors.js");
+const amdProcessorSchema = require("./models/amdprocessors.js");
+const intelProcessorSchema = require("./models/intelprocessors.js");
 
 module.exports = function (mongoDBConnectionString) {
-  let Processor;
-
+  let intelProcessors;
+  let amdProcessors;
   return {
     connect: function () {
       return new Promise(function (resolve, reject) {
@@ -20,17 +21,31 @@ module.exports = function (mongoDBConnectionString) {
         });
 
         db.once("open", () => {
-          Processor = db.model("Amdprocessor", processorSchema);
+          amdProcessors = db.model("Amdprocessor", amdProcessorSchema);
+          intelProcessors = db.model("Intelprocessors", intelProcessorSchema);
           resolve();
         });
       });
     },
-    getAllProcessors: function () {
+    getAMDProcessors: function () {
       return new Promise(function (resolve, reject) {
-        Processor.find()
+        amdProcessors
+          .find()
           .exec()
           .then((processors) => {
-            console.log("Processors", processors);
+            resolve(processors);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+    getIntelProcessors: function () {
+      return new Promise(function (resolve, reject) {
+        intelProcessors
+          .find()
+          .exec()
+          .then((processors) => {
             resolve(processors);
           })
           .catch((err) => {
