@@ -118,6 +118,7 @@ data
   .then(() => {
     app.listen(HTTP_PORT, () => {
       console.log('Listening to port: ' + HTTP_PORT);
+      console.log('http://localhost:' + HTTP_PORT + '/');
     });
   })
   .catch((err) => {
