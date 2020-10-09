@@ -191,7 +191,7 @@ app.get('/ddr4rams/:ddr4ramid', (req, res) => {
 });
 //
 //Hard disk drive route
-app.get('/hdds', (req, res) => {
+app.get('/harddiskdrives', (req, res) => {
   data
     .getAllHdds()
     .then((data) => {
@@ -202,7 +202,7 @@ app.get('/hdds', (req, res) => {
       res.status(500).end();
     });
 });
-app.get('/hdds/:hddid', (req, res) => {
+app.get('/harddiskdrives/:hddid', (req, res) => {
   data
     .getHddById(req.params.hddid)
     .then((data) => {
