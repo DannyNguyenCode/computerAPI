@@ -6,12 +6,16 @@ const amdgpuSchema = require('./models/amdgpu.js');
 const amdMoboSchema = require('./models/amdmobo');
 const amdProcessorSchema = require('./models/amdprocessors');
 const caseFanSchema = require('./models/casefan');
+const caseSchema = require('./models/cases');
+const cpufansheatsinksSchema = require('./models/cpufansheatsinks');
 
 module.exports = function (mongoDBConnectionString) {
   let Amdgpus;
   let Amdmobos;
   let Amdprocessors;
   let CaseFan;
+  let Cases;
+  let CpuFansHeatSinks;
   return {
     connect: () => {
       return new Promise((resolve, reject) => {
@@ -28,6 +32,11 @@ module.exports = function (mongoDBConnectionString) {
           Amdmobos = db.model('Amdmobo', amdMoboSchema);
           Amdprocessors = db.model('Amdprocessor', amdProcessorSchema);
           CaseFan = db.model('Casefan', caseFanSchema);
+          Cases = db.model('Case', caseSchema);
+          CpuFansHeatSinks = db.model(
+            'CpuFansHeatSink',
+            cpufansheatsinksSchema
+          );
           console.log('Connection successfully in connect function');
           resolve();
         });
@@ -132,6 +141,57 @@ module.exports = function (mongoDBConnectionString) {
           .exec()
           .then((casefan) => {
             resolve(casefan);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+
+    getAllCases: () => {
+      return new Promise((resolve, reject) => {
+        Cases.find()
+          .exec()
+          .then((cases) => {
+            resolve(cases);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+    getCaseById: (caseid) => {
+      return new Promise((resolve, reject) => {
+        Cases.find({ _id: caseid })
+          .limit(1)
+          .exec()
+          .then((cases) => {
+            resolve(cases);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+    getAllCpuFansHeatSinks: () => {
+      return new Promise((resolve, reject) => {
+        CpuFansHeatSinks.find()
+          .exec()
+          .then((cpufansheatsink) => {
+            resolve(cpufansheatsink);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+    getCpuFansHeatSinksById: (cpufansheatsinksid) => {
+      return new Promise((resolve, reject) => {
+        CpuFansHeatSinks.find({ _id: cpufansheatsinksid })
+          .limit(1)
+          .exec()
+          .then((cpufansheatsink) => {
+            resolve(cpufansheatsink);
           })
           .catch((err) => {
             reject(err);
