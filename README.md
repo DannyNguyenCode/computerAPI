@@ -9,7 +9,7 @@
 
 ## Collections within the API
 
-- amdgpu
+- amdgpus
 - amdmobos
 - amdprocessors
 - casefans
