@@ -1,5 +1,7 @@
 # computerAPI
 
+# Once completed, will be deployed to Heroku
+
 ## Instructions on how to run this api
 
 1. Clone the repository
