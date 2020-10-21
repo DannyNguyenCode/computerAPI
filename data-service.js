@@ -96,6 +96,27 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateAMDGPUsByID: (gpuid, gpu) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(gpu).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: gpuid },
+            { $set: gpu },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(gpuid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
     //
     //AMD motherboard data fetch
     getAllAMDmobos: () => {
@@ -121,6 +142,27 @@ module.exports = function (mongoDBConnectionString) {
           .catch((err) => {
             reject(err);
           });
+      });
+    },
+
+    updateAMDmobosByID: (amdmoboid, mobo) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(mobo).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: amdmoboid },
+            { $set: mobo },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(amdmoboid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
       });
     },
     //
@@ -150,6 +192,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateAMDProcessorsByID: (amdprocessorid, processors) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(processors).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: amdprocessorid },
+            { $set: processors },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(amdprocessorid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Case fans data fetch
     getAllCaseFans: () => {
@@ -177,6 +241,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateCaseFansByID: (casefanid, casefan) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(casefan).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: casefanid },
+            { $set: casefan },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(casefanid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Cases data fetch
     getAllCases: () => {
@@ -204,6 +290,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateCasesByID: (caseid, cases) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(cases).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: caseid },
+            { $set: cases },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(caseid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //CPU fans and heat sinks data fetch
     getAllCpuFansHeatSinks: () => {
@@ -229,6 +337,27 @@ module.exports = function (mongoDBConnectionString) {
           .catch((err) => {
             reject(err);
           });
+      });
+    },
+
+    updateCpuFansHeatSinksByID: (cpufansheatsinksid, cpufansheatsink) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(cpufansheatsink).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: cpufansheatsinksid },
+            { $set: cpufansheatsink },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(cpufansheatsinksid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
       });
     },
     //
@@ -258,6 +387,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateddr4RamByID: (ddr4ramsid, ddr4ram) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(ddr4ram).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: ddr4ramsid },
+            { $set: ddr4ram },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(ddr4ramsid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //HDD data fetch
     getAllHdds: () => {
@@ -285,6 +436,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateHddByID: (hddid, hdd) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(hdd).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: hddid },
+            { $set: hdd },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(hddid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Intel motherboard data fetch
     getAllIntelMobos: () => {
@@ -312,6 +485,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateIntelMoboByID: (intelmoboid, intelmobo) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(intelmobo).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: intelmoboid },
+            { $set: intelmobo },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(intelmoboid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Intel processors data fetch
     getAllIntelProcessors: () => {
@@ -339,6 +534,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateIntelProcessorByID: (intelprocessorsid, intelprocessor) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(intelprocessor).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: intelprocessorsid },
+            { $set: intelprocessor },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(intelprocessorsid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Nvidia graphic cards data fetch
     getAllNvidiaGPUs: () => {
@@ -366,6 +583,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateNvidiaGPUByID: (nvidiagpuid, nvidiagpu) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(nvidiagpu).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: nvidiagpuid },
+            { $set: nvidiagpu },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(nvidiagpuid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Nvme SSDs data fetch
     getAllNvmeSsds: () => {
@@ -393,6 +632,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateNvmeSsdByID: (nvmessdid, nvmessd) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(nvmessd).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: nvmessdid },
+            { $set: nvmessd },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(nvmessdid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Power supplies data fetch
     getAllPsus: () => {
@@ -420,6 +681,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updatePsuByID: (psusid, psu) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(psu).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: psusid },
+            { $set: psu },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(psusid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Sata SSDs data fetch
     getAllSataSsds: () => {
@@ -447,6 +730,28 @@ module.exports = function (mongoDBConnectionString) {
           });
       });
     },
+
+    updateSataSsdByID: (satassdid, satassd) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(satassd).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: satassdid },
+            { $set: satassd },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(satassdid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
+      });
+    },
+
     //
     //Water coolings data fetch
     getAllWaterCoolings: () => {
@@ -472,6 +777,27 @@ module.exports = function (mongoDBConnectionString) {
           .catch((err) => {
             reject(err);
           });
+      });
+    },
+
+    updateWaterCoolingByID: (watercoolingid, watercooling) => {
+      return new Promise((resolve, reject) => {
+        if (Object.keys(watercooling).length > 0) {
+          AmdGpus.findByIdAndUpdate(
+            { _id: watercoolingid },
+            { $set: watercooling },
+            { multi: false }
+          )
+            .exec()
+            .then((data) => {
+              resolve(watercoolingid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        } else {
+          resolve();
+        }
       });
     },
   };
