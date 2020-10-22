@@ -15,6 +15,7 @@ app.use(morgan('combined'));
 
 app.use(bodyParser.json());
 app.use(cors());
+
 //
 //AMD Graphic Card routes
 app.get('/amdgpus', (req, res) => {
@@ -50,6 +51,20 @@ app.put('/amdgpus/:gpuid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating AMD GPUs by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/amdgpus', (req, res) => {
+  data
+    .addAMDgpu(req.body)
+    .then((data) => {
+      res.json({
+        message: 'AMD graphics card ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added AMD GPU');
       res.status(500).end();
     });
 });
@@ -94,6 +109,20 @@ app.put('/amdmobos/:moboid', (req, res) => {
     });
 });
 
+app.post('/amdmobos', (req, res) => {
+  data
+    .addAMDmobo(req.body)
+    .then((data) => {
+      res.json({
+        message: 'AMD motherboard ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added AMD motherboard');
+      res.status(500).end();
+    });
+});
+
 //
 //AMD processor routes
 app.get('/amdprocessors', (req, res) => {
@@ -130,6 +159,20 @@ app.put('/amdprocessors/:procid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating AMD processors by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/amdprocessors', (req, res) => {
+  data
+    .addAMDprocessor(req.body)
+    .then((data) => {
+      res.json({
+        message: 'AMD processors ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added AMD processors');
       res.status(500).end();
     });
 });
@@ -173,6 +216,20 @@ app.put('/casefans/:casefanid', (req, res) => {
     });
 });
 
+app.post('/casefans', (req, res) => {
+  data
+    .addCaseFan(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Case fan ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added case fan');
+      res.status(500).end();
+    });
+});
+
 //
 //Cases route
 app.get('/cases', (req, res) => {
@@ -208,6 +265,20 @@ app.put('/cases/:caseid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating cases by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/cases', (req, res) => {
+  data
+    .addCase(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Case ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added case');
       res.status(500).end();
     });
 });
@@ -251,6 +322,20 @@ app.put('/cpufansheatsinks/:cpufansheatsinkid', (req, res) => {
     });
 });
 
+app.post('/cpufansheatsinks', (req, res) => {
+  data
+    .addCpuFansHeatSink(req.body)
+    .then((data) => {
+      res.json({
+        message: 'CPU fan and heatsink ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added CPU fan and heatsink');
+      res.status(500).end();
+    });
+});
+
 //
 //DDR4 ram route
 app.get('/ddr4rams', (req, res) => {
@@ -286,6 +371,20 @@ app.put('/ddr4rams/:ddr4ramid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating DDR4 rams by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/ddr4rams', (req, res) => {
+  data
+    .addddr4Ram(req.body)
+    .then((data) => {
+      res.json({
+        message: 'DDR4 ram ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added DDR4 ram');
       res.status(500).end();
     });
 });
@@ -329,6 +428,20 @@ app.put('/harddiskdrives/:hddid', (req, res) => {
     });
 });
 
+app.post('/harddiskdrives', (req, res) => {
+  data
+    .addHdd(req.body)
+    .then((data) => {
+      res.json({
+        message: 'HDD ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added HDD');
+      res.status(500).end();
+    });
+});
+
 //
 //Intel motherboard route
 app.get('/intelmobos', (req, res) => {
@@ -364,6 +477,20 @@ app.put('/intelmobos/:intelmoboid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating Intel motherboard by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/intelmobos', (req, res) => {
+  data
+    .addIntelMobo(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Intel motherboard ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added Intel motherboard');
       res.status(500).end();
     });
 });
@@ -407,6 +534,20 @@ app.put('/intelprocessors/:intelprocessorid', (req, res) => {
     });
 });
 
+app.post('/intelprocessors', (req, res) => {
+  data
+    .addIntelProcessor(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Intel processor ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added Intel processor');
+      res.status(500).end();
+    });
+});
+
 //
 //Nvidia Graphic card route
 app.get('/nvidiagpus', (req, res) => {
@@ -442,6 +583,20 @@ app.put('/nvidiagpus/:nvidiagpuid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating Nvidia graphic card by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/nvidiagpus', (req, res) => {
+  data
+    .addNvidiaGPU(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Nvidia graphic card ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added Nvidia graphic card');
       res.status(500).end();
     });
 });
@@ -487,6 +642,20 @@ app.put('/nvmessds/:nvmessdid', (req, res) => {
     });
 });
 
+app.post('/nvmessds', (req, res) => {
+  data
+    .addNvmeSsd(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Nvme solid state drive ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added nvme solid state drive');
+      res.status(500).end();
+    });
+});
+
 //
 //Power supply route
 app.get('/psus', (req, res) => {
@@ -522,6 +691,20 @@ app.put('/psus/:psuid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating power supply by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/psus', (req, res) => {
+  data
+    .addPsu(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Power supply ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added power supply');
       res.status(500).end();
     });
 });
@@ -567,6 +750,20 @@ app.put('/satassds/:satassdid', (req, res) => {
     });
 });
 
+app.post('/satassds', (req, res) => {
+  data
+    .addSataSsd(req.body)
+    .then((data) => {
+      res.json({
+        message: 'SATA solid state drive ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added SATA solid state drive');
+      res.status(500).end();
+    });
+});
+
 //
 //Water Cooling route
 app.get('/watercoolings', (req, res) => {
@@ -602,6 +799,20 @@ app.put('/watercoolings/:watercoolingid', (req, res) => {
     })
     .catch((err) => {
       console.log(err.message + ' within updating water cooling by ID');
+      res.status(500).end();
+    });
+});
+
+app.post('/watercoolings', (req, res) => {
+  data
+    .addWaterCooling(req.body)
+    .then((data) => {
+      res.json({
+        message: 'Water cooling ' + data + ' added successfully',
+      });
+    })
+    .catch((err) => {
+      console.log(err.message + ' withing added water cooling');
       res.status(500).end();
     });
 });
