@@ -117,6 +117,18 @@ module.exports = function (mongoDBConnectionString) {
         }
       });
     },
+
+    addAMDgpu: (gpu) => {
+      return new Promise((resolve, reject) => {
+        let newData = new AmdGpus(gpu);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //AMD motherboard data fetch
     getAllAMDmobos: () => {
@@ -165,6 +177,18 @@ module.exports = function (mongoDBConnectionString) {
         }
       });
     },
+
+    addAMDmobo: (mobo) => {
+      return new Promise((resolve, reject) => {
+        let newData = new AmdMobos(mobo);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //AMD processors data fetch
     getAllAMDProcessors: () => {
@@ -211,6 +235,17 @@ module.exports = function (mongoDBConnectionString) {
         } else {
           resolve();
         }
+      });
+    },
+
+    addAMDprocessor: (processor) => {
+      return new Promise((resolve, reject) => {
+        let newData = new AmdProcessors(processor);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
       });
     },
 
@@ -263,6 +298,17 @@ module.exports = function (mongoDBConnectionString) {
       });
     },
 
+    addCaseFan: (casefan) => {
+      return new Promise((resolve, reject) => {
+        let newData = new CaseFan(casefan);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //Cases data fetch
     getAllCases: () => {
@@ -309,6 +355,17 @@ module.exports = function (mongoDBConnectionString) {
         } else {
           resolve();
         }
+      });
+    },
+
+    addCase: (cases) => {
+      return new Promise((resolve, reject) => {
+        let newData = new Cases(cases);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
       });
     },
 
@@ -360,6 +417,18 @@ module.exports = function (mongoDBConnectionString) {
         }
       });
     },
+
+    addCpuFansHeatSink: (cpufansheatsink) => {
+      return new Promise((resolve, reject) => {
+        let newData = new CpuFansHeatSinks(cpufansheatsink);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //DDR4 Rams data fetch
     getAllddr4Rams: () => {
@@ -406,6 +475,17 @@ module.exports = function (mongoDBConnectionString) {
         } else {
           resolve();
         }
+      });
+    },
+
+    addddr4Ram: (ddr4ram) => {
+      return new Promise((resolve, reject) => {
+        let newData = new Ddr4Rams(ddr4ram);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
       });
     },
 
@@ -458,6 +538,17 @@ module.exports = function (mongoDBConnectionString) {
       });
     },
 
+    addHdd: (hdd) => {
+      return new Promise((resolve, reject) => {
+        let newData = new Hdds(hdd);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //Intel motherboard data fetch
     getAllIntelMobos: () => {
@@ -504,6 +595,17 @@ module.exports = function (mongoDBConnectionString) {
         } else {
           resolve();
         }
+      });
+    },
+
+    addIntelMobo: (intelmobo) => {
+      return new Promise((resolve, reject) => {
+        let newData = new IntelMobos(intelmobo);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
       });
     },
 
@@ -556,6 +658,17 @@ module.exports = function (mongoDBConnectionString) {
       });
     },
 
+    addIntelProcessor: (intelprocessor) => {
+      return new Promise((resolve, reject) => {
+        let newData = new IntelProcessors(intelprocessor);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //Nvidia graphic cards data fetch
     getAllNvidiaGPUs: () => {
@@ -602,6 +715,17 @@ module.exports = function (mongoDBConnectionString) {
         } else {
           resolve();
         }
+      });
+    },
+
+    addNvidiaGPU: (nvidiagpu) => {
+      return new Promise((resolve, reject) => {
+        let newData = new NvidiaGpus(nvidiagpu);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
       });
     },
 
@@ -654,14 +778,25 @@ module.exports = function (mongoDBConnectionString) {
       });
     },
 
+    addNvmeSsd: (nvmessd) => {
+      return new Promise((resolve, reject) => {
+        let newData = new NvmeSsds(nvmessd);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //Power supplies data fetch
     getAllPsus: () => {
       return new Promise((resolve, reject) => {
         Psus.find()
           .exec()
-          .then((cpufansheatsink) => {
-            resolve(cpufansheatsink);
+          .then((psu) => {
+            resolve(psu);
           })
           .catch((err) => {
             reject(err);
@@ -700,6 +835,17 @@ module.exports = function (mongoDBConnectionString) {
         } else {
           resolve();
         }
+      });
+    },
+
+    addPsu: (psu) => {
+      return new Promise((resolve, reject) => {
+        let newData = new Psus(psu);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
       });
     },
 
@@ -752,6 +898,17 @@ module.exports = function (mongoDBConnectionString) {
       });
     },
 
+    addSataSsd: (satassd) => {
+      return new Promise((resolve, reject) => {
+        let newData = new SataSsds(satassd);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
+      });
+    },
+
     //
     //Water coolings data fetch
     getAllWaterCoolings: () => {
@@ -798,6 +955,17 @@ module.exports = function (mongoDBConnectionString) {
         } else {
           resolve();
         }
+      });
+    },
+
+    addWaterCooling: (watercooling) => {
+      return new Promise((resolve, reject) => {
+        let newData = new WaterCoolings(watercooling);
+        newData.save((err, addedData) => {
+          if (err) {
+            reject(err);
+          } else resolve(addedData._id);
+        });
       });
     },
   };
