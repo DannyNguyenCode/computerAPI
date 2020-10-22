@@ -1,6 +1,8 @@
 # computerAPI
 
-# API is deployed on Heroku at: https://floating-brushlands-50137.herokuapp.com/
+# API is deployed on Heroku at:
+
+## https://floating-brushlands-50137.herokuapp.com/
 
 ## Collections within the API
 
