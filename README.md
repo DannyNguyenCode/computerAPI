@@ -2,7 +2,10 @@
 
 # API is deployed on Heroku at:
 
-## https://floating-brushlands-50137.herokuapp.com/
+## Please head over to https://github.com/DannyNguyenCode/postgresHeroku
+
+Migrated database - follow the link above for new source code to new database platform
+~~https://floating-brushlands-50137.herokuapp.com/~~
 
 ## Collections within the API
 
